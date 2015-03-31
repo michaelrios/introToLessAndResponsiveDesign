@@ -1,63 +1,91 @@
-#responsiveLayout {
-  .set(@availableW) {
-    .container{
-      width:@availableW;
-    }
-  }
+body {
+  margin: 0;
 }
-
-@media (max-width: 599px) {
-  #responsiveLayout > .set(320px);
-}
-
-@media (min-width: 600px) and (max-width: 999px) {
-  #responsiveLayout > .set(600px);
-}
-
-@media (min-width: 1000px) {
-  #responsiveLayout > .set(1000px);
-}
-
-@orange : color(#E5722F);
-
-.container{
-  .clearfix();
-  border:1px black solid;
-  background: #ccd;
-  margin:0 auto;
-}
-#header, #footer {
+header,
+footer {
   width: 100%;
 }
-
-#nav ul {
-  list-style-type: none;
+header:before,
+footer:before,
+header:after,
+footer:after {
+  content: " ";
+  display: table;
+}
+header:after,
+footer:after {
+  clear: both;
+}
+header {
+  background-color: #e5722f;
+}
+footer,
+#hero-wrapper {
+  background-color: #000;
+  color: #fff;
+}
+@media (max-width: 599px) {
+  #content,
+  #header,
+  #footer,
+  #hero {
+    width: 280px;
+  }
+}
+@media (min-width: 600px) and (max-width: 999px) {
+  #content,
+  #header,
+  #footer,
+  #hero {
+    width: 560px;
+  }
+}
+@media (min-width: 1000px) {
+  #content,
+  #header,
+  #footer,
+  #hero {
+    width: 960px;
+  }
+}
+#container {
+  background: #e4e4e4;
+  margin: 0;
+}
+#container:before,
+#container:after {
+  content: " ";
+  display: table;
+}
+#container:after {
+  clear: both;
+}
+#content,
+#header,
+#footer,
+#hero {
+  margin: 0 auto;
+  padding: 20px;
+}
+#hero-wrapper {
+  -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+}
+#header h1 {
   display: inline-block;
 }
-
-.clearfix() {
-  &:before,
-  &:after {
-    content: " "; // 1
-    display: table; // 2
-  }
-  &:after {
-    clear: both;
-  }
+#header #nav {
+  display: inline-block;
 }
-
-.border-radius (@radius: 5px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius:    @radius;
-  border-radius:         @radius;
-
-  -moz-background-clip:    padding;
-  -webkit-background-clip: padding-box;
-  background-clip:         padding-box;
+#header #nav ul {
+  list-style-type: none;
+  display: inline;
 }
-
-.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
-  -webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
-  -moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
-  box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
+#header #nav li {
+  padding: 0 2% 0 2%;
+  display: inline-block;
+}
+#header #nav li form {
+  display: inline-block;
 }
