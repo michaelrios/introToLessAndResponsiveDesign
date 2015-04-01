@@ -29,7 +29,14 @@ footer,
   #header,
   #footer,
   #hero {
-    width: 280px;
+    width: 320px;
+  }
+  #hero-wrapper {
+    background-image: url("../img/car.png");
+    background-size: cover;
+  }
+  #hero-wrapper #hero #gt-racing-logo img {
+    width: 106.66666667px;
   }
 }
 @media (min-width: 600px) and (max-width: 999px) {
@@ -37,7 +44,14 @@ footer,
   #header,
   #footer,
   #hero {
-    width: 560px;
+    width: 600px;
+  }
+  #hero-wrapper {
+    background-image: url("../img/car.png");
+    background-size: cover;
+  }
+  #hero-wrapper #hero #gt-racing-logo img {
+    width: 200px;
   }
 }
 @media (min-width: 1000px) {
@@ -45,7 +59,14 @@ footer,
   #header,
   #footer,
   #hero {
-    width: 960px;
+    width: 1000px;
+  }
+  #hero-wrapper {
+    background-image: url("../img/car.png");
+    background-size: cover;
+  }
+  #hero-wrapper #hero #gt-racing-logo img {
+    width: 333.33333333px;
   }
 }
 #container {
@@ -65,27 +86,44 @@ footer,
 #footer,
 #hero {
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0 20px 0;
 }
 #hero-wrapper {
   -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
 }
-#header h1 {
-  display: inline-block;
+#header #logo {
+  float: left;
+}
+#header #logo h1 {
+  display: inline;
 }
 #header #nav {
-  display: inline-block;
+  float: right;
+  display: inline;
 }
 #header #nav ul {
   list-style-type: none;
   display: inline;
 }
 #header #nav li {
-  padding: 0 2% 0 2%;
-  display: inline-block;
+  padding: 0 15px 0 15px;
+  display: inline;
 }
-#header #nav li form {
-  display: inline-block;
+#header #nav form {
+  display: inline;
+}
+#cool-sections ul {
+  list-style-type: none;
+}
+#cool-sections ul li {
+  width: 45%;
+  display: inline;
+}
+#cool-sections ul li:nth-child(odd) {
+  float: left;
+}
+#cool-sections ul li:nth-child(even) {
+  float: right;
 }

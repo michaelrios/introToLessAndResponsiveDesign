@@ -3,6 +3,7 @@
 
 @orange : #E5722F;
 @sectionPadding : 20px;
+@carImage : url("../img/car.png");
 
 body {
   margin: 0;
@@ -37,8 +38,9 @@ footer, #hero-wrapper {
 #responsiveLayout {
   .set(@availableW) {
     #content, #header, #footer, #hero{
-      width: @availableW - (2 * @sectionPadding);
+      width: @availableW;
     }
+    .hero(@availableW);
   }
 }
 
@@ -50,7 +52,7 @@ footer, #hero-wrapper {
 
 #content, #header, #footer, #hero {
   margin: 0 auto;
-  padding: @sectionPadding;
+  padding: @sectionPadding 0 @sectionPadding 0;
 }
 
 #hero-wrapper {
@@ -58,22 +60,56 @@ footer, #hero-wrapper {
 }
 
 #header {
-  h1 {
-    display: inline-block;
+  #logo {
+    float:left;
+    h1 {
+      display: inline;
+    }
   }
 
   #nav {
-    display: inline-block;
+    float:right;
+    display: inline;
     ul {
       list-style-type: none;
       display: inline;
     }
     li {
-      padding: 0 2% 0 2%;
-      display: inline-block;
-      form {
-        display: inline-block;
+      padding: 0 15px 0 15px;
+      display: inline;
+    }
+    form {
+      display: inline;
+    }
+  }
+}
+
+.hero(@availableW) {
+  #hero-wrapper {
+    background-image: @carImage;
+    background-size: cover;
+    #hero {
+      #gt-racing-logo {
+        img{
+          width: @availableW / 3;
+        }
       }
+    }
+  }
+}
+
+#cool-sections {
+  ul {
+    list-style-type: none;
+    li {
+      width: 45%;
+      display: inline;
+    }
+    li:nth-child(odd) {
+      float: left;
+    }
+    li:nth-child(even) {
+      float: right;
     }
   }
 }
