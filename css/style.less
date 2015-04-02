@@ -6,11 +6,17 @@
 @tabletWidth : 600px;
 @deskWidth : 950px;
 
+@headerHeight : 50px;
+
+@fadedOrange : #4e2714;
 @orange : #E37239;
 @darkOrange : #C96639;
+
 @sectionPadding : 20px;
 @carImage : url("../img/car.png");
 @magImage : url("../img/magnify.png");
+@closeImage : url("../img/close.png");
+@openImage : url("../img/open.png");
 
 body {
   margin: 0;
@@ -23,6 +29,9 @@ header, footer {
 
 header {
   background-color: @orange;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
 footer, #hero-wrapper {
@@ -46,7 +55,7 @@ footer, #hero-wrapper {
       width: @contentWidth;
     }
     #header.constant();
-    #header.set();
+    #header.set(@contentWidth, @tabletWidth);
 
     #hero.constant(@contentWidth);
     #hero.set(@contentWidth, @tabletWidth);
@@ -68,9 +77,6 @@ footer, #hero-wrapper {
 #footer, #hero, #cool-sections, #featured-work {
   padding: @sectionPadding 0 @sectionPadding 0;
 }
-#header {
-  padding : 10px 0 40px 0;
-}
 
 #hero-wrapper {
   .drop-shadow(0, 10px, 30px, 0, .5);
@@ -78,49 +84,25 @@ footer, #hero-wrapper {
 
 #header {
   .constant() {
+    #header {
+      height: @headerHeight;
+      max-height: @headerHeight;
+    }
     #logo {
       float:left;
-      h1 {
-        display: inline;
+      padding : 10px 0 0 0;
+      .text {
+        padding-bottom: 8px;
       }
     }
-    form {
-      display: inline-block;
-      border: 1px inset #ccc;
-      width: 150px;
-      .book-thin-oblique();
-      .border-radius(20px);
-      .inset-shadow(2px, 2px, 3px, 0, .25);
-      background-color: white;
-      input {
-        display: inline;
-        background: none;
-        border: 0;
-      }
-      input:focus {
-        outline: 0;
-      }
-      button {
-        border: none;
-        background: none;
-        img {
-          margin-bottom: -2px;
-        }
-      }
-    }
-  }
-  .set() when (default()) {
     #nav {
-      float:right;
-      display: inline;
+      float: right;
+      padding : 10px 0 0 0;
       ul {
         list-style-type: none;
-        display: inline;
       }
       li {
         .book-thin();
-        padding: 0 15px 0 15px;
-        display: inline;
         color: white;
         a {
           text-decoration: none;
@@ -129,6 +111,138 @@ footer, #hero-wrapper {
         a:hover {
           color: #e4e4e4;
         }
+      }
+      #searchBox {
+        .border-radius(20px);
+        .inset-shadow(2px, 2px, 3px, 0, .25);
+        background-color: white;
+        border: 1px inset #ccc;
+        display: inline-block;
+
+        .results {
+          width: 150px;
+          margin-left: -5px;
+          .border-radius-bottom(20px);
+          .book-thin();
+          padding: 10px 5px 5px 5px;
+          margin-top: 0px;
+          font-size: .8em;
+          background-color: white;
+          .result {
+            color: black;
+            clear: both;
+            cursor: pointer;
+            a:hover {
+              color: #999999;
+            }
+          }
+        }
+
+        form {
+          display: inline-block;
+          width: 150px;
+          input {
+            display: inline;
+            background: none;
+            border: 0;
+            text-align: left;
+          }
+          input:focus {
+            outline: 0;
+            width: 80%;
+          }
+          button {
+            float: right;
+            border: none;
+            background: none;
+            img {
+              margin-bottom: -2px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .set(@contentWidth, @tabletWidth) when (@contentWidth <= @tabletWidth) {
+    #header {
+      width: 100%;
+    }
+    #logo {
+      padding-left: 10px;
+    }
+    #menu-icon {
+      float: right;
+      display: inline;
+      background-color: black;
+      color: white;
+      height: @headerHeight;
+      width: @headerHeight;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      cursor: pointer;
+    }
+    .open {
+      background-image: @openImage;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 30px;
+      width: 30px;
+      padding: 10px;
+    }
+    .close {
+      background-image: @closeImage;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 30px;
+      width: 30px;
+      padding: 10px;
+    }
+    #nav {
+      display: none;
+      float: left;
+      clear: both;
+      background-color: black;
+      width: 100%;
+      ul {
+        width: 95%;
+        padding: 0;
+        margin: 0 auto 10px auto;
+      }
+      li {
+        width: 100%;
+        position:relative;
+        box-sizing:border-box;
+        text-align: center;
+        border-top:1px solid @fadedOrange;
+        a {
+          padding: 10px 5px 10px 0;
+          display: block;
+        }
+        form {
+          width: 150px;
+        }
+      }
+      li:last-child {
+        border-top: 0;
+      }
+      li:first-child {
+        border-top: 0;
+      }
+    }
+  }
+  .set(@contentWidth, @tabletWidth) when (default()) {
+    .menu-icon {
+      display: none !important;
+    }
+    #nav {
+      display: block;
+      ul {
+        display: inline;
+      }
+      li {
+        padding: 0 15px 0 15px;
+        display: inline;
       }
     }
   }
@@ -140,6 +254,8 @@ footer, #hero-wrapper {
       background-image: @carImage;
       background-size: cover;
       background-repeat: no-repeat;
+      padding-bottom: 20px;
+      margin-top: @headerHeight;
     }
     #hero-left {
       width: (3/7) * @contentWidth;

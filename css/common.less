@@ -19,6 +19,16 @@
   background-clip:         padding-box;
 }
 
+.border-radius-bottom (@radius: 5px) {
+  -webkit-border-bottom-right-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-radius-bottomright: @radius;
+
+  -moz-border-radius-bottomleft: @radius;
+  border-bottom-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+
 .drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
   -webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
   -moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
