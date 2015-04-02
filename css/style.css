@@ -24,7 +24,7 @@ footer,
   background-color: #000;
   color: #fff;
 }
-@media (max-width: 599px) {
+@media (min-width: 0) {
   #content,
   #header,
   #footer,
@@ -35,11 +35,30 @@ footer,
     background-image: url("../img/car.png");
     background-size: cover;
   }
-  #hero-wrapper #hero #gt-racing-logo img {
+  #gt-racing-logo img {
     width: 106.66666667px;
   }
+  #cool-sections:before,
+  #cool-sections:after {
+    content: " ";
+    display: table;
+  }
+  #cool-sections:after {
+    clear: both;
+  }
+  #cool-sections ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  #cool-sections ul li {
+    width: 100%;
+    display: inline-block;
+  }
+  #cool-sections ul li {
+    float: left;
+  }
 }
-@media (min-width: 600px) and (max-width: 999px) {
+@media (min-width: 600px) {
   #content,
   #header,
   #footer,
@@ -50,8 +69,27 @@ footer,
     background-image: url("../img/car.png");
     background-size: cover;
   }
-  #hero-wrapper #hero #gt-racing-logo img {
+  #gt-racing-logo img {
     width: 200px;
+  }
+  #cool-sections:before,
+  #cool-sections:after {
+    content: " ";
+    display: table;
+  }
+  #cool-sections:after {
+    clear: both;
+  }
+  #cool-sections ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  #cool-sections ul li {
+    width: 100%;
+    display: inline-block;
+  }
+  #cool-sections ul li {
+    float: left;
   }
 }
 @media (min-width: 1000px) {
@@ -65,8 +103,31 @@ footer,
     background-image: url("../img/car.png");
     background-size: cover;
   }
-  #hero-wrapper #hero #gt-racing-logo img {
+  #gt-racing-logo img {
     width: 333.33333333px;
+  }
+  #cool-sections:before,
+  #cool-sections:after {
+    content: " ";
+    display: table;
+  }
+  #cool-sections:after {
+    clear: both;
+  }
+  #cool-sections ul {
+    list-style-type: none;
+    display: inline;
+    padding: 0;
+  }
+  #cool-sections ul li {
+    width: 45%;
+    display: inline-block;
+  }
+  #cool-sections ul li:nth-child(odd) {
+    float: left;
+  }
+  #cool-sections ul li:nth-child(even) {
+    float: right;
   }
 }
 #container {
@@ -84,8 +145,16 @@ footer,
 #content,
 #header,
 #footer,
-#hero {
+#hero,
+#cool-sections,
+#featured-work {
   margin: 0 auto;
+}
+#header,
+#footer,
+#hero,
+#cool-sections,
+#featured-work {
   padding: 20px 0 20px 0;
 }
 #hero-wrapper {
@@ -114,16 +183,6 @@ footer,
 #header #nav form {
   display: inline;
 }
-#cool-sections ul {
-  list-style-type: none;
-}
-#cool-sections ul li {
-  width: 45%;
+#featured-work h3 {
   display: inline;
-}
-#cool-sections ul li:nth-child(odd) {
-  float: left;
-}
-#cool-sections ul li:nth-child(even) {
-  float: right;
 }

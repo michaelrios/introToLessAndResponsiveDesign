@@ -1,6 +1,10 @@
 
 @import "common";
 
+@mobileWidth : 320px;
+@tabletWidth : 600px;
+@deskWidth : 1000px;
+
 @orange : #E5722F;
 @sectionPadding : 20px;
 @carImage : url("../img/car.png");
@@ -23,16 +27,14 @@ footer, #hero-wrapper {
   color: #fff;
 }
 
-@media (max-width: 599px) {
-  #responsiveLayout > .set(320px);
+@media (min-width: 0) {
+  #responsiveLayout.set(@mobileWidth);
 }
-
-@media (min-width: 600px) and (max-width: 999px) {
-  #responsiveLayout > .set(600px);
+@media (min-width: @tabletWidth) {
+  #responsiveLayout.set(@tabletWidth);
 }
-
-@media (min-width: 1000px) {
-  #responsiveLayout > .set(1000px);
+@media (min-width: @deskWidth) {
+  #responsiveLayout.set(@deskWidth);
 }
 
 #responsiveLayout {
@@ -40,7 +42,8 @@ footer, #hero-wrapper {
     #content, #header, #footer, #hero{
       width: @availableW;
     }
-    .hero(@availableW);
+    #hero.set(@availableW, @tabletWidth);
+    #coolSections.set(@availableW, @tabletWidth);
   }
 }
 
@@ -50,8 +53,10 @@ footer, #hero-wrapper {
   margin: 0;
 }
 
-#content, #header, #footer, #hero {
+#content, #header, #footer, #hero, #cool-sections, #featured-work {
   margin: 0 auto;
+}
+#header, #footer, #hero, #cool-sections, #featured-work {
   padding: @sectionPadding 0 @sectionPadding 0;
 }
 
@@ -84,34 +89,73 @@ footer, #hero-wrapper {
   }
 }
 
-.hero(@availableW) {
-  #hero-wrapper {
-    background-image: @carImage;
-    background-size: cover;
-    #hero {
-      #gt-racing-logo {
-        img{
-          width: @availableW / 3;
+#hero {
+  .set(@availableW, @tabletWidth) when (@availableW <= @tabletWidth) {
+    #hero-wrapper {
+      background-image: @carImage;
+      background-size: cover;
+    }
+    #gt-racing-logo {
+      img{
+        width: @availableW / 3;
+      }
+    }
+  }
+  .set(@availableW, @tabletWidth) when (default()) {
+    #hero-wrapper {
+      background-image: @carImage;
+      background-size: cover;
+    }
+    #gt-racing-logo {
+      img{
+        width: @availableW / 3;
+      }
+    }
+  }
+}
+
+#coolSections {
+  .set(@availableW, @tabletWidth) when (@availableW <= @tabletWidth) {
+    #cool-sections {
+      .clearfix();
+      ul {
+        list-style-type: none;
+        padding:0;
+        li {
+          width: 100%;
+          display: inline-block;
+        }
+        li {
+          float: left;
+        }
+      }
+    }
+  }
+  .set(@availableW, @tabletWidth) when (default()) {
+    #cool-sections {
+      .clearfix();
+      ul {
+        list-style-type: none;
+        display: inline;
+        padding:0;
+        li {
+          width: 45%;
+          display: inline-block;
+        }
+        li:nth-child(odd) {
+          float: left;
+        }
+        li:nth-child(even) {
+          float: right;
         }
       }
     }
   }
 }
 
-#cool-sections {
-  ul {
-    list-style-type: none;
-    li {
-      width: 45%;
-      display: inline;
-    }
-    li:nth-child(odd) {
-      float: left;
-    }
-    li:nth-child(even) {
-      float: right;
-    }
+#featured-work {
+  h3 {
+    display: inline;
   }
 }
-
 
