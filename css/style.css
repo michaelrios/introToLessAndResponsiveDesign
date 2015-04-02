@@ -106,7 +106,9 @@ header {
   background-color: #e37239;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  max-height: 50px;
+  overflow: visible;
+  z-index: 100;
 }
 footer,
 #hero-wrapper {
@@ -137,59 +139,56 @@ footer,
   }
   #nav ul {
     list-style-type: none;
+    vertical-align: top;
   }
   #nav li {
     font-family: Book, arial, sans-serif;
     font-style: normal;
     font-weight: 100;
     color: white;
+    vertical-align: top;
   }
   #nav li a {
     text-decoration: none;
     color: inherit;
+    vertical-align: top;
   }
   #nav li a:hover {
     color: #e4e4e4;
   }
   #nav #searchBox {
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    padding: 4px;
     -webkit-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     -moz-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     background-color: white;
     border: 1px inset #ccc;
     display: inline-block;
+    padding: 5px;
   }
   #nav #searchBox .results {
-    width: 150px;
-    margin-left: -5px;
-    -webkit-border-bottom-right-radius: 20px;
-    -webkit-border-bottom-left-radius: 20px;
-    -moz-border-radius-bottomright: 20px;
-    -moz-border-radius-bottomleft: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    width: 100%;
     font-family: Book, arial, sans-serif;
     font-style: normal;
     font-weight: 100;
-    padding: 10px 5px 5px 5px;
-    margin-top: 0px;
+    margin-top: 0;
     font-size: .8em;
-    background-color: white;
   }
-  #nav #searchBox .results .result {
-    color: black;
+  #nav #searchBox .results a {
+    border-top: 1px #ccc solid;
     clear: both;
-    cursor: pointer;
+    width: 100%;
+    display: block;
+    padding: 5px 0 5px 0;
+    color: black;
   }
-  #nav #searchBox .results .result a:hover {
-    color: #999999;
+  #nav #searchBox .results a:hover {
+    background-color: #ccc;
   }
   #nav #searchBox form {
     display: inline-block;
@@ -363,59 +362,56 @@ footer,
   }
   #nav ul {
     list-style-type: none;
+    vertical-align: top;
   }
   #nav li {
     font-family: Book, arial, sans-serif;
     font-style: normal;
     font-weight: 100;
     color: white;
+    vertical-align: top;
   }
   #nav li a {
     text-decoration: none;
     color: inherit;
+    vertical-align: top;
   }
   #nav li a:hover {
     color: #e4e4e4;
   }
   #nav #searchBox {
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    padding: 4px;
     -webkit-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     -moz-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     background-color: white;
     border: 1px inset #ccc;
     display: inline-block;
+    padding: 5px;
   }
   #nav #searchBox .results {
-    width: 150px;
-    margin-left: -5px;
-    -webkit-border-bottom-right-radius: 20px;
-    -webkit-border-bottom-left-radius: 20px;
-    -moz-border-radius-bottomright: 20px;
-    -moz-border-radius-bottomleft: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    width: 100%;
     font-family: Book, arial, sans-serif;
     font-style: normal;
     font-weight: 100;
-    padding: 10px 5px 5px 5px;
-    margin-top: 0px;
+    margin-top: 0;
     font-size: .8em;
-    background-color: white;
   }
-  #nav #searchBox .results .result {
-    color: black;
+  #nav #searchBox .results a {
+    border-top: 1px #ccc solid;
     clear: both;
-    cursor: pointer;
+    width: 100%;
+    display: block;
+    padding: 5px 0 5px 0;
+    color: black;
   }
-  #nav #searchBox .results .result a:hover {
-    color: #999999;
+  #nav #searchBox .results a:hover {
+    background-color: #ccc;
   }
   #nav #searchBox form {
     display: inline-block;
@@ -642,59 +638,56 @@ footer,
   }
   #nav ul {
     list-style-type: none;
+    vertical-align: top;
   }
   #nav li {
     font-family: Book, arial, sans-serif;
     font-style: normal;
     font-weight: 100;
     color: white;
+    vertical-align: top;
   }
   #nav li a {
     text-decoration: none;
     color: inherit;
+    vertical-align: top;
   }
   #nav li a:hover {
     color: #e4e4e4;
   }
   #nav #searchBox {
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    padding: 4px;
     -webkit-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     -moz-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
     background-color: white;
     border: 1px inset #ccc;
     display: inline-block;
+    padding: 5px;
   }
   #nav #searchBox .results {
-    width: 150px;
-    margin-left: -5px;
-    -webkit-border-bottom-right-radius: 20px;
-    -webkit-border-bottom-left-radius: 20px;
-    -moz-border-radius-bottomright: 20px;
-    -moz-border-radius-bottomleft: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    width: 100%;
     font-family: Book, arial, sans-serif;
     font-style: normal;
     font-weight: 100;
-    padding: 10px 5px 5px 5px;
-    margin-top: 0px;
+    margin-top: 0;
     font-size: .8em;
-    background-color: white;
   }
-  #nav #searchBox .results .result {
-    color: black;
+  #nav #searchBox .results a {
+    border-top: 1px #ccc solid;
     clear: both;
-    cursor: pointer;
+    width: 100%;
+    display: block;
+    padding: 5px 0 5px 0;
+    color: black;
   }
-  #nav #searchBox .results .result a:hover {
-    color: #999999;
+  #nav #searchBox .results a:hover {
+    background-color: #ccc;
   }
   #nav #searchBox form {
     display: inline-block;

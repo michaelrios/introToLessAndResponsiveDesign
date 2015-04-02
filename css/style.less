@@ -31,7 +31,9 @@ header {
   background-color: @orange;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  max-height: @headerHeight;
+  overflow: visible;
+  z-index: 100;
 }
 
 footer, #hero-wrapper {
@@ -100,41 +102,44 @@ footer, #hero-wrapper {
       padding : 10px 0 0 0;
       ul {
         list-style-type: none;
+        vertical-align:top;
       }
       li {
         .book-thin();
         color: white;
+        vertical-align:top;
         a {
           text-decoration: none;
           color: inherit;
+          vertical-align:top;
         }
         a:hover {
           color: #e4e4e4;
         }
       }
       #searchBox {
-        .border-radius(20px);
+        .border-radius(15px);
         .inset-shadow(2px, 2px, 3px, 0, .25);
         background-color: white;
         border: 1px inset #ccc;
         display: inline-block;
+        padding: 5px;
 
         .results {
-          width: 150px;
-          margin-left: -5px;
-          .border-radius-bottom(20px);
+          width: 100%;
           .book-thin();
-          padding: 10px 5px 5px 5px;
-          margin-top: 0px;
+          margin-top: 0;
           font-size: .8em;
-          background-color: white;
-          .result {
-            color: black;
+          a {
+            border-top: 1px #ccc solid;
             clear: both;
-            cursor: pointer;
-            a:hover {
-              color: #999999;
-            }
+            width: 100%;
+            display: block;
+            padding: 5px 0 5px 0;
+            color: black;
+          }
+          a:hover {
+            background-color: #ccc;
           }
         }
 

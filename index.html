@@ -29,6 +29,7 @@
                                 <input id="searchInput" type="text" autocomplete="off" placeholder="Search for Something!"/>
                                 <button type="submit"><img src="img/magnify.png"/></button>
                             </form>
+                            <div id="searchSuggestions"></div>
                         </div>
                     </li>
                 </ul>
@@ -135,7 +136,9 @@
     }
 
     var searchInput = document.getElementById('searchInput'),
-            resultSet, result, text;
+        searchSuggestions = document.getElementById('searchSuggestions'),
+        resultSet, result, text;
+    
     searchInput.addEventListener('keyup', function() {
         resultSet = [];
         for(var i=0; result=results[i]; i++) {
@@ -147,14 +150,10 @@
             text = '<div class="result"><a href="#">' + resultSet.join('</a></div><div class="result"><a href="#">') + '</a></div>';
             console.log(resultSet);
             if(!this.suggestion) {
-                var rect = this.getBoundingClientRect();
-                var left = rect.left;
-                var top = rect.bottom;
                 this.suggestion = document.createElement('div');
                 this.suggestion.className = 'results';
                 this.suggestion.innerHTML = text;
-                this.suggestion.setAttribute('style', 'position: absolute; top: ' + top + 'px; left: ' + left + 'px;');
-                this.parentNode.appendChild(this.suggestion);
+                searchSuggestions.appendChild(this.suggestion);
             } else {
                 this.suggestion.innerHTML = text;
                 this.suggestion.style.display = 'block';
