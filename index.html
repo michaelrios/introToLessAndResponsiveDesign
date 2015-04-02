@@ -13,19 +13,25 @@
     <header>
         <div id="header">
             <div id="logo">
-                <h1>Apps by Mike</h1>
+                <img class="img" src="img/beard.png"/>
+                <img class="text" src="img/appsByMike.png"/>
             </div>
+            <div id="menu-icon" class="open"></div>
             <div id="nav">
                 <ul>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Our Process</a></li>
                     <li><a href="#">Featured Work</a></li>
                     <li><a href="#">Contact</a></li>
+                    <li>
+                        <div id="searchBox">
+                            <form accept-charset="UTF-8" action="#" method="get">
+                                <input id="searchInput" type="text" autocomplete="off" placeholder="Search for Something!"/>
+                                <button type="submit"><img src="img/magnify.png"/></button>
+                            </form>
+                        </div>
+                    </li>
                 </ul>
-                <form accept-charset="UTF-8" action="#" method="get">
-                    <input type="text" placeholder="Search for Something!"/>
-                    <button type="submit"><img src="img/magnify.png"/></button>
-                </form>
             </div>
         </div>
     </header>
@@ -95,6 +101,74 @@
     </footer>
 </div>
 
+<script>
 
+    var menuIcon = document.getElementById("menu-icon"),
+        nav = document.getElementById("nav"),
+        results = [
+            {name: 'Something Great'},
+            {name: 'Something Fantastic'},
+            {name: 'Something Not So Good'}
+        ];
+
+    menuIcon.addEventListener('click', function () {
+        if (getDisplayStatus(nav) == 'none') {
+            nav.style.display = 'block';
+            menuIcon.className = 'close';
+        } else {
+            nav.style.display = 'none';
+            menuIcon.className = 'open';
+        }
+    });
+
+    window.onresize =function(e) {
+        if(window.innerWidth > 950 && getDisplayStatus(nav) == 'none') {
+            nav.style.display = 'block';
+        } else if (window.innerWidth <= 950 && getDisplayStatus(nav) == 'block' && menuIcon.className === 'open') {
+            nav.style.display = 'none';
+        }
+    };
+
+    function getDisplayStatus (domObject) {
+        return domObject.currentStyle ? domObject.currentStyle.display :
+                getComputedStyle(domObject, null).display;
+    }
+
+    var searchInput = document.getElementById('searchInput'),
+            resultSet, result, text;
+    searchInput.addEventListener('keyup', function() {
+        resultSet = [];
+        for(var i=0; result=results[i]; i++) {
+            if(this.value !== '' && result.name.search(new RegExp(this.value, 'i')) >= 0) {
+                resultSet.push(result.name);
+            }
+        }
+        if (resultSet.length > 0) {
+            text = '<div class="result"><a href="#">' + resultSet.join('</a></div><div class="result"><a href="#">') + '</a></div>';
+            console.log(resultSet);
+            if(!this.suggestion) {
+                var rect = this.getBoundingClientRect();
+                var left = rect.left;
+                var top = rect.bottom;
+                this.suggestion = document.createElement('div');
+                this.suggestion.className = 'results';
+                this.suggestion.innerHTML = text;
+                this.suggestion.setAttribute('style', 'position: absolute; top: ' + top + 'px; left: ' + left + 'px;');
+                this.parentNode.appendChild(this.suggestion);
+            } else {
+                this.suggestion.innerHTML = text;
+                this.suggestion.style.display = 'block';
+            }
+        }
+
+    });
+    searchInput.addEventListener('blur', function() {
+        console.log(this.suggestion);
+        if(this.suggestion) {
+            this.suggestion.style.display = 'none';
+        }
+    });
+
+</script>
 </body>
 </html>
