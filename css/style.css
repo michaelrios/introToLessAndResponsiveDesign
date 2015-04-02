@@ -1,3 +1,89 @@
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-Black_0.otf");
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-BlackOblique_0.otf");
+  font-weight: bold;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-Book_0.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-BookOblique_0.otf");
+  font-weight: normal;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-Light_0.otf");
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-LightOblique_0.otf");
+  font-weight: 100;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Roman";
+  src: url("../font/AvenirLTStd-Roman.otf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roman";
+  src: url("../font/AvenirLTStd-Oblique.otf");
+  font-style: oblique;
+}
+.book {
+  font-family: Book, arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+.book-bold {
+  font-family: Book, arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+.book-oblique {
+  font-family: Book, arial, sans-serif;
+  font-style: oblique;
+  font-weight: normal;
+}
+.book-bold-oblique {
+  font-family: Book, arial, sans-serif;
+  font-style: oblique;
+  font-weight: bold;
+}
+.book-thin {
+  font-family: Book, arial, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+}
+.book-thin-oblique {
+  font-family: Book, arial, sans-serif;
+  font-style: oblique;
+  font-weight: 100;
+}
+.roman {
+  font-family: Roman, arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+.roman-oblique {
+  font-family: Roman, arial, sans-serif;
+  font-style: oblique;
+  font-weight: normal;
+}
 body {
   margin: 0;
 }
@@ -17,117 +103,530 @@ footer:after {
   clear: both;
 }
 header {
-  background-color: #e5722f;
+  background-color: #e37239;
 }
 footer,
 #hero-wrapper {
   background-color: #000;
   color: #fff;
 }
-@media (min-width: 0) {
+@media (min-width: 950px) {
   #content,
   #header,
   #footer,
   #hero {
-    width: 320px;
+    width: 950px;
   }
-  #hero-wrapper {
-    background-image: url("../img/car.png");
-    background-size: cover;
-  }
-  #gt-racing-logo img {
-    width: 106.66666667px;
-  }
-  #cool-sections:before,
-  #cool-sections:after {
-    content: " ";
-    display: table;
-  }
-  #cool-sections:after {
-    clear: both;
-  }
-  #cool-sections ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  #cool-sections ul li {
-    width: 100%;
-    display: inline-block;
-  }
-  #cool-sections ul li {
+  #logo {
     float: left;
   }
-}
-@media (min-width: 600px) {
-  #content,
-  #header,
-  #footer,
-  #hero {
-    width: 600px;
+  #logo h1 {
+    display: inline;
   }
-  #hero-wrapper {
-    background-image: url("../img/car.png");
-    background-size: cover;
-  }
-  #gt-racing-logo img {
-    width: 200px;
-  }
-  #cool-sections:before,
-  #cool-sections:after {
-    content: " ";
-    display: table;
-  }
-  #cool-sections:after {
-    clear: both;
-  }
-  #cool-sections ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  #cool-sections ul li {
-    width: 100%;
+  form {
     display: inline-block;
+    border: 1px inset #ccc;
+    width: 150px;
+    font-family: Book, arial, sans-serif;
+    font-style: oblique;
+    font-weight: 100;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    padding: 4px;
+    -webkit-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    background-color: white;
   }
-  #cool-sections ul li {
-    float: left;
+  form input {
+    display: inline;
+    background: none;
+    border: 0;
   }
-}
-@media (min-width: 1000px) {
-  #content,
-  #header,
-  #footer,
-  #hero {
-    width: 1000px;
+  form input:focus {
+    outline: 0;
   }
-  #hero-wrapper {
-    background-image: url("../img/car.png");
-    background-size: cover;
+  form button {
+    border: none;
+    background: none;
   }
-  #gt-racing-logo img {
-    width: 333.33333333px;
+  form button img {
+    margin-bottom: -2px;
   }
-  #cool-sections:before,
-  #cool-sections:after {
-    content: " ";
-    display: table;
+  #nav {
+    float: right;
+    display: inline;
   }
-  #cool-sections:after {
-    clear: both;
-  }
-  #cool-sections ul {
+  #nav ul {
     list-style-type: none;
     display: inline;
+  }
+  #nav li {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    padding: 0 15px 0 15px;
+    display: inline;
+    color: white;
+  }
+  #nav li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #nav li a:hover {
+    color: #e4e4e4;
+  }
+  #hero-wrapper {
+    background-image: url("../img/car.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #hero-left {
+    width: 407.14285714px;
+    display: inline-block;
+  }
+  #gt-racing-logo img {
+    width: 316.66666667px;
+  }
+  .quote .statement {
+    font-family: Roman, arial, sans-serif;
+    font-style: oblique;
+    font-weight: normal;
+    color: #c96639;
+    font-size: 1em;
+    clear: both;
+    float: left;
+    display: block;
+  }
+  .quote .author {
+    font-family: Roman, arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .8em;
+    clear: both;
+    float: left;
+    display: block;
+  }
+  .case-study {
+    clear: both;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px #cccccc solid;
+    background-color: black;
+    color: #cccccc;
+    margin-top: 20px;
+  }
+  .case-study span {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    padding: 7px 3px 3px 3px;
+  }
+  #featured-app-icon {
+    background-color: #c96639;
+    width: 143px;
+    height: 1.5em;
+    -webkit-clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+    margin: 35px 0 15px 0;
+  }
+  #featured-app-icon div {
+    font-family: Roman, arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: black;
+    padding: 5px;
+  }
+  #gt-racing-description {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+  }
+  #cool-sections:before,
+  #cool-sections:after {
+    content: " ";
+    display: table;
+  }
+  #cool-sections:after {
+    clear: both;
+  }
+  #cool-sections ul {
+    list-style-type: none;
     padding: 0;
+  }
+  #cool-sections ul li {
+    display: inline;
+  }
+  #cool-sections ul li h2 {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #c96639;
+  }
+  #cool-sections ul li p {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #999;
+  }
+  #cool-sections ul {
+    display: inline;
   }
   #cool-sections ul li {
     width: 45%;
-    display: inline-block;
   }
   #cool-sections ul li:nth-child(odd) {
     float: left;
   }
   #cool-sections ul li:nth-child(even) {
     float: right;
+  }
+}
+@media (max-width: 950px) {
+  #content,
+  #header,
+  #footer,
+  #hero {
+    width: 600px;
+  }
+  #logo {
+    float: left;
+  }
+  #logo h1 {
+    display: inline;
+  }
+  form {
+    display: inline-block;
+    border: 1px inset #ccc;
+    width: 150px;
+    font-family: Book, arial, sans-serif;
+    font-style: oblique;
+    font-weight: 100;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    padding: 4px;
+    -webkit-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    background-color: white;
+  }
+  form input {
+    display: inline;
+    background: none;
+    border: 0;
+  }
+  form input:focus {
+    outline: 0;
+  }
+  form button {
+    border: none;
+    background: none;
+  }
+  form button img {
+    margin-bottom: -2px;
+  }
+  #nav {
+    float: right;
+    display: inline;
+  }
+  #nav ul {
+    list-style-type: none;
+    display: inline;
+  }
+  #nav li {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    padding: 0 15px 0 15px;
+    display: inline;
+    color: white;
+  }
+  #nav li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #nav li a:hover {
+    color: #e4e4e4;
+  }
+  #hero-wrapper {
+    background-image: url("../img/car.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #hero-left {
+    width: 257.14285714px;
+    display: inline-block;
+  }
+  #gt-racing-logo img {
+    width: 200px;
+  }
+  .quote .statement {
+    font-family: Roman, arial, sans-serif;
+    font-style: oblique;
+    font-weight: normal;
+    color: #c96639;
+    font-size: 1em;
+    clear: both;
+    float: left;
+    display: block;
+  }
+  .quote .author {
+    font-family: Roman, arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .8em;
+    clear: both;
+    float: left;
+    display: block;
+  }
+  .case-study {
+    clear: both;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px #cccccc solid;
+    background-color: black;
+    color: #cccccc;
+    margin-top: 20px;
+  }
+  .case-study span {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    padding: 7px 3px 3px 3px;
+  }
+  #featured-app-icon {
+    background-color: #c96639;
+    width: 143px;
+    height: 1.5em;
+    -webkit-clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+    margin: 35px 0 15px 0;
+  }
+  #featured-app-icon div {
+    font-family: Roman, arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: black;
+    padding: 5px;
+  }
+  #gt-racing-description {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+  }
+  #cool-sections:before,
+  #cool-sections:after {
+    content: " ";
+    display: table;
+  }
+  #cool-sections:after {
+    clear: both;
+  }
+  #cool-sections ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  #cool-sections ul li {
+    display: inline;
+  }
+  #cool-sections ul li h2 {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #c96639;
+  }
+  #cool-sections ul li p {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #999;
+  }
+  #cool-sections ul {
+    display: inline;
+  }
+  #cool-sections ul li {
+    width: 45%;
+  }
+  #cool-sections ul li:nth-child(odd) {
+    float: left;
+  }
+  #cool-sections ul li:nth-child(even) {
+    float: right;
+  }
+}
+@media (max-width: 600px) {
+  #content,
+  #header,
+  #footer,
+  #hero {
+    width: 320px;
+  }
+  #logo {
+    float: left;
+  }
+  #logo h1 {
+    display: inline;
+  }
+  form {
+    display: inline-block;
+    border: 1px inset #ccc;
+    width: 150px;
+    font-family: Book, arial, sans-serif;
+    font-style: oblique;
+    font-weight: 100;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    padding: 4px;
+    -webkit-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 2px 2px 3px 0 rgba(0, 0, 0, 0.25);
+    background-color: white;
+  }
+  form input {
+    display: inline;
+    background: none;
+    border: 0;
+  }
+  form input:focus {
+    outline: 0;
+  }
+  form button {
+    border: none;
+    background: none;
+  }
+  form button img {
+    margin-bottom: -2px;
+  }
+  #nav {
+    float: right;
+    display: inline;
+  }
+  #nav ul {
+    list-style-type: none;
+    display: inline;
+  }
+  #nav li {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    padding: 0 15px 0 15px;
+    display: inline;
+    color: white;
+  }
+  #nav li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  #nav li a:hover {
+    color: #e4e4e4;
+  }
+  #hero-wrapper {
+    background-image: url("../img/car.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #hero-left {
+    width: 137.14285714px;
+    display: inline-block;
+  }
+  #gt-racing-logo img {
+    width: 106.66666667px;
+  }
+  .quote .statement {
+    font-family: Roman, arial, sans-serif;
+    font-style: oblique;
+    font-weight: normal;
+    color: #c96639;
+    font-size: 1em;
+    clear: both;
+    float: left;
+    display: block;
+  }
+  .quote .author {
+    font-family: Roman, arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .8em;
+    clear: both;
+    float: left;
+    display: block;
+  }
+  .case-study {
+    clear: both;
+    float: left;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px #cccccc solid;
+    background-color: black;
+    color: #cccccc;
+    margin-top: 20px;
+  }
+  .case-study span {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    padding: 7px 3px 3px 3px;
+  }
+  #featured-app-icon,
+  #gt-racing-description {
+    display: none;
+  }
+  #cool-sections:before,
+  #cool-sections:after {
+    content: " ";
+    display: table;
+  }
+  #cool-sections:after {
+    clear: both;
+  }
+  #cool-sections ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  #cool-sections ul li {
+    display: inline;
+  }
+  #cool-sections ul li h2 {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #c96639;
+  }
+  #cool-sections ul li p {
+    font-family: Book, arial, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    color: #999;
+  }
+  #cool-sections ul li {
+    width: 100%;
+    float: left;
   }
 }
 #container {
@@ -150,38 +649,19 @@ footer,
 #featured-work {
   margin: 0 auto;
 }
-#header,
 #footer,
 #hero,
 #cool-sections,
 #featured-work {
   padding: 20px 0 20px 0;
 }
+#header {
+  padding: 10px 0 40px 0;
+}
 #hero-wrapper {
   -webkit-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
-}
-#header #logo {
-  float: left;
-}
-#header #logo h1 {
-  display: inline;
-}
-#header #nav {
-  float: right;
-  display: inline;
-}
-#header #nav ul {
-  list-style-type: none;
-  display: inline;
-}
-#header #nav li {
-  padding: 0 15px 0 15px;
-  display: inline;
-}
-#header #nav form {
-  display: inline;
 }
 #featured-work h3 {
   display: inline;

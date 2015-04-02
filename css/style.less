@@ -1,13 +1,16 @@
 
 @import "common";
+@import "fonts";
 
 @mobileWidth : 320px;
 @tabletWidth : 600px;
-@deskWidth : 1000px;
+@deskWidth : 950px;
 
-@orange : #E5722F;
+@orange : #E37239;
+@darkOrange : #C96639;
 @sectionPadding : 20px;
 @carImage : url("../img/car.png");
+@magImage : url("../img/magnify.png");
 
 body {
   margin: 0;
@@ -27,23 +30,29 @@ footer, #hero-wrapper {
   color: #fff;
 }
 
-@media (min-width: 0) {
-  #responsiveLayout.set(@mobileWidth);
-}
-@media (min-width: @tabletWidth) {
-  #responsiveLayout.set(@tabletWidth);
-}
 @media (min-width: @deskWidth) {
   #responsiveLayout.set(@deskWidth);
 }
+@media (max-width: @deskWidth) {
+  #responsiveLayout.set(@tabletWidth);
+}
+@media (max-width: @tabletWidth) {
+  #responsiveLayout.set(@mobileWidth);
+}
 
 #responsiveLayout {
-  .set(@availableW) {
+  .set(@contentWidth) {
     #content, #header, #footer, #hero{
-      width: @availableW;
+      width: @contentWidth;
     }
-    #hero.set(@availableW, @tabletWidth);
-    #coolSections.set(@availableW, @tabletWidth);
+    #header.constant();
+    #header.set();
+
+    #hero.constant(@contentWidth);
+    #hero.set(@contentWidth, @tabletWidth);
+
+    #coolSections.constant();
+    #coolSections.set(@contentWidth, @tabletWidth);
   }
 }
 
@@ -56,8 +65,11 @@ footer, #hero-wrapper {
 #content, #header, #footer, #hero, #cool-sections, #featured-work {
   margin: 0 auto;
 }
-#header, #footer, #hero, #cool-sections, #featured-work {
+#footer, #hero, #cool-sections, #featured-work {
   padding: @sectionPadding 0 @sectionPadding 0;
+}
+#header {
+  padding : 10px 0 40px 0;
 }
 
 #hero-wrapper {
@@ -65,82 +77,172 @@ footer, #hero-wrapper {
 }
 
 #header {
-  #logo {
-    float:left;
-    h1 {
-      display: inline;
-    }
-  }
-
-  #nav {
-    float:right;
-    display: inline;
-    ul {
-      list-style-type: none;
-      display: inline;
-    }
-    li {
-      padding: 0 15px 0 15px;
-      display: inline;
+  .constant() {
+    #logo {
+      float:left;
+      h1 {
+        display: inline;
+      }
     }
     form {
+      display: inline-block;
+      border: 1px inset #ccc;
+      width: 150px;
+      .book-thin-oblique();
+      .border-radius(20px);
+      .inset-shadow(2px, 2px, 3px, 0, .25);
+      background-color: white;
+      input {
+        display: inline;
+        background: none;
+        border: 0;
+      }
+      input:focus {
+        outline: 0;
+      }
+      button {
+        border: none;
+        background: none;
+        img {
+          margin-bottom: -2px;
+        }
+      }
+    }
+  }
+  .set() when (default()) {
+    #nav {
+      float:right;
       display: inline;
+      ul {
+        list-style-type: none;
+        display: inline;
+      }
+      li {
+        .book-thin();
+        padding: 0 15px 0 15px;
+        display: inline;
+        color: white;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        a:hover {
+          color: #e4e4e4;
+        }
+      }
     }
   }
 }
 
 #hero {
-  .set(@availableW, @tabletWidth) when (@availableW <= @tabletWidth) {
+  .constant(@contentWidth) {
     #hero-wrapper {
       background-image: @carImage;
       background-size: cover;
+      background-repeat: no-repeat;
+    }
+    #hero-left {
+      width: (3/7) * @contentWidth;
+      display: inline-block;
     }
     #gt-racing-logo {
       img{
-        width: @availableW / 3;
+        width: @contentWidth / 3;
+      }
+    }
+    .quote {
+      .statement {
+        .roman-oblique();
+        color: @darkOrange;
+        font-size: 1em;
+        clear: both;
+        float: left;
+        display: block;
+      }
+      .author {
+        .roman();
+        font-size: .8em;
+        clear: both;
+        float: left;
+        display: block;
+      }
+    }
+    .case-study {
+      clear: both;
+      float: left;
+      .border-radius();
+      border: 1px #cccccc solid;
+      background-color: black;
+      color: #cccccc;
+      margin-top: 20px;
+      span {
+        .book-thin();
+        padding: 7px 3px 3px 3px;
       }
     }
   }
-  .set(@availableW, @tabletWidth) when (default()) {
-    #hero-wrapper {
-      background-image: @carImage;
-      background-size: cover;
+  .set(@contentWidth, @tabletWidth) when (@contentWidth < @tabletWidth) {
+    #featured-app-icon, #gt-racing-description {
+      display: none;
     }
-    #gt-racing-logo {
-      img{
-        width: @availableW / 3;
+  }
+  .set(@contentWidth, @tabletWidth) when (default()) {
+    #featured-app-icon {
+      background-color: @darkOrange;
+      width: 143px;
+      height: 1.5em;
+      -webkit-clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+      margin: 35px 0 15px 0;
+      div {
+        .roman();
+        color: black;
+        padding: 5px;
       }
+    }
+    #gt-racing-description {
+      .book-thin();
     }
   }
 }
 
 #coolSections {
-  .set(@availableW, @tabletWidth) when (@availableW <= @tabletWidth) {
+  .constant() {
     #cool-sections {
       .clearfix();
       ul {
         list-style-type: none;
         padding:0;
         li {
-          width: 100%;
-          display: inline-block;
+          display: inline;
+          h2 {
+            .book-bold();
+            color: @darkOrange;
+          }
+          p {
+            .book-thin();
+            color: #999;
+          }
         }
+      }
+    }
+  }
+  .set(@contentWidth, @tabletWidth) when (@contentWidth < @tabletWidth) {
+    #cool-sections {
+      ul {
         li {
+          width: 100%;
           float: left;
         }
       }
     }
   }
-  .set(@availableW, @tabletWidth) when (default()) {
+  .set(@contentWidth, @tabletWidth) when (default()) {
     #cool-sections {
-      .clearfix();
       ul {
-        list-style-type: none;
         display: inline;
-        padding:0;
         li {
           width: 45%;
-          display: inline-block;
         }
         li:nth-child(odd) {
           float: left;

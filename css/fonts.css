@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-Black_0.otf");
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-BlackOblique_0.otf");
+  font-weight: bold;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-Book_0.otf");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-BookOblique_0.otf");
+  font-weight: normal;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-Light_0.otf");
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Book";
+  src: url("../font/AvenirLTStd-LightOblique_0.otf");
+  font-weight: 100;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Roman";
+  src: url("../font/AvenirLTStd-Roman.otf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roman";
+  src: url("../font/AvenirLTStd-Oblique.otf");
+  font-style: oblique;
+}
+.book {
+  font-family: Book, arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+.book-bold {
+  font-family: Book, arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+.book-oblique {
+  font-family: Book, arial, sans-serif;
+  font-style: oblique;
+  font-weight: normal;
+}
+.book-bold-oblique {
+  font-family: Book, arial, sans-serif;
+  font-style: oblique;
+  font-weight: bold;
+}
+.book-thin {
+  font-family: Book, arial, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+}
+.book-thin-oblique {
+  font-family: Book, arial, sans-serif;
+  font-style: oblique;
+  font-weight: 100;
+}
+.roman {
+  font-family: Roman, arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+.roman-oblique {
+  font-family: Roman, arial, sans-serif;
+  font-style: oblique;
+  font-weight: normal;
+}
